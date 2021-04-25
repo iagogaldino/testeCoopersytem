@@ -57,6 +57,10 @@
   width: 70px;
   background-size: 100%;
   margin: auto;
+  background-image: url('../../../assets/logo.jfif');
+  background-size: 100%;
+  margin: auto;
+  background-repeat: no-repeat;
 }
 
 .im {
@@ -95,12 +99,7 @@
   word-break: break-word;
 }
 
-.fo1 {
- /**/
-}
-.fo2 {
-   /**/
-}
+
 
 .searchMob {
   display: none;
@@ -112,9 +111,6 @@
   text-align: center;
 }
 
-.bt {
-  /**/
-}
 
 .desc {
   word-break: break-word;
