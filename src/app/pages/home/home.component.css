@@ -57,6 +57,10 @@
   width: 70px;
   background-size: 100%;
   margin: auto;
+  background-image: url('../../../assets/logo.jfif');
+  background-size: 100%;
+  margin: auto;
+  background-repeat: no-repeat;
 }
 
 .im {
