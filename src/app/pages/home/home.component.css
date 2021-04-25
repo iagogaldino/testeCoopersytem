@@ -1,0 +1,139 @@
+.tbc {
+  background-color: black;
+  color: white;
+}
+.box {
+  padding: 0px 66px 10px;
+  color: #444444;
+  margin-top: 22px;
+}
+  .iconColorApp {
+  color:#9a9a9a;
+}
+
+.nameUser {
+  margin-left: 10px;
+}
+
+.formStyle {
+  width: 100%;
+}
+
+.a1 {
+  padding         : 10px;
+}
+
+.avatar {
+  background   : rgb(162, 162, 162);
+  width        : 60px;
+  height       : 60px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  margin-top: 11px;
+}
+
+.content1 {
+  border-radius: 14px;
+  background-color: white;
+  margin-left: 200px;
+  margin-right: 200px;
+  min-width: 60%;
+  -webkit-box-shadow: 22px 0px 5px rgb(50 50 50 / 77%);
+  -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+  box-shadow: 0px 3px 8px rgb(50 50 50 / 41%);
+}
+.icc {
+  font-size: 15px;
+}
+.alogo {
+  background-color: white;
+  padding: 20px;
+  border-radius: 50px;
+}
+.logo {
+  height: 70px;
+  width: 70px;
+  background-size: 100%;
+  margin: auto;
+}
+
+.im {
+  background-image: url('../../../assets/gitanim.gif');
+  height: 315px;
+  width: 315px;
+  background-size: 100%;
+  margin: auto;
+  background-repeat: no-repeat;
+}
+
+.itemSelected {
+  padding: 10px;
+  background: #f5e198;
+}
+
+.repoName {
+  color: #9a9a9a;
+}
+
+.repoNameSelected {
+  color: black;
+}
+
+.allcontent {
+  background-color: #ffffff;
+  padding-bottom: 20px;
+  padding-top: 50px;
+}
+
+.fo {
+  font-size: 12px;
+  padding: 10px;
+  color: #673ab7;
+  border-top: 1px solid #e2e2e2;
+  word-break: break-word;
+}
+
+.fo1 {
+ /**/
+}
+.fo2 {
+   /**/
+}
+
+.searchMob {
+  display: none;
+}
+.searchDesk {
+  width: 300px;
+  margin: auto;
+  margin-top: -85px;
+  text-align: center;
+}
+
+.bt {
+  /**/
+}
+
+.desc {
+  word-break: break-word;
+}
+
+@media only screen and (max-width: 600px) {
+  .content1 {
+    margin-left: 0px;
+    margin-right: 0px;
+    -webkit-box-shadow: 0px 0px 0px rgb(50 50 50 / 77%);
+  -moz-box-shadow:0px 0px 0px rgba(50, 50, 50, 0.77);
+  box-shadow: 0px 0px 0px rgb(50 50 50 / 41%);
+  }
+  .allcontent {
+    background-color:white;
+    padding-top: 0px;
+  }
+  .box {
+    padding: 0px 9px 10px;
+    font-size: 12px;
+}
+}

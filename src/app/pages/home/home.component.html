@@ -1,0 +1,161 @@
+<div  fxLayout="column" >
+  <mat-toolbar class='tbc'>
+  <span>Coopersystem</span>
+</mat-toolbar>
+<mat-progress-bar *ngIf="statusLoader" mode="query"></mat-progress-bar>
+<mat-progress-bar *ngIf="!statusLoader" mode="determinate" value="0"></mat-progress-bar>
+</div>
+
+
+
+<div class="allcontent">
+
+
+
+  <div *ngIf="!statusSearch" class="alogo"  >
+    <div class="im"></div>
+    <div class="searchDesk">
+      <mat-form-field class="formStyle" appearance="outline">
+        <mat-label>Buscar repositórios do git</mat-label>
+        <input type="email" matInput placeholder="Informe aqui o nome do usuário" #userName
+          (keyup.enter)="onPressEnterKey(userName.value)">
+      </mat-form-field>
+      <button class="bt" mat-raised-button color="warn" (click)="onPressEnterKey(userName.value)" [disabled]="statusBtSearch">Buscar</button>
+    </div>
+  </div>
+
+  <div class="content1" *ngIf="statusSearch"
+  >
+
+    <div style="display: flex; align-items: center; gap: 10; margin-top: 10px;padding-left: 10px;">
+      <div class="avatar" style="background-image: url('{{avatar}}')"></div>
+      <div class="nameUser">
+        <div style="font-weight: 600;"> {{userNameGIT}} </div>
+        <div> {{location}} </div>
+      </div>
+    </div>
+
+    <mat-list>
+      <div mat-subheader> Repositórios Github </div>
+
+      <span *ngFor="let item of repoItens">
+        <mat-list-item (click)="onClickItemRepo(item)" [class.itemSelected]="item.selected">
+
+          <mat-icon mat-list-icon class="iconColorApp" [class.repoNameSelected]="item.selected">
+            folder
+          </mat-icon>
+
+          <button mat-icon-button color="warn">
+            <mat-icon *ngIf="!item.selected">chevron_right</mat-icon>
+            <mat-icon *ngIf="item.selected">expand_more</mat-icon>
+          </button>
+
+          <div class="repoName" mat-line [class.repoNameSelected]="item.selected">
+           <a href="javascript:;" style="text-decoration: none; color: black;"> {{item.name}} </a>
+          </div>
+
+          <div mat-line></div>
+        </mat-list-item>
+        <div class="box" *ngIf="item.selected">
+          <div class="desc"> <mat-icon class="icc">event</mat-icon> Data criado: {{ item.created_at }}</div>
+          <div class="desc"> <mat-icon class="icc">supervisor_account</mat-icon> Branch principal: {{ item.default_branch }}</div>
+          <div class="desc"> <mat-icon class="icc">swap_horiz</mat-icon> Git clone: {{ item.clone_url }}</div>
+          <div class="desc"> <mat-icon class="icc">vpn_key</mat-icon> SSH: {{ item.ssh_url }}</div>
+          <div class="desc"> <mat-icon class="icc">keyboard</mat-icon> Linguagem: {{ item.language }}</div>
+          <div class="desc"> <mat-icon class="icc">pin</mat-icon> Descrição: {{ item.description }}</div>
+        </div>
+      </span>
+
+    </mat-list>
+    <div class="fo">
+      <div class="fo1">Quantidade de repositórios publicos {{public_repos}} </div>
+      <div class="fo2"> <a [href]="userUrl" target="_new">{{ userUrl }}</a> </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;margin-top: 20px;">
+    <button *ngIf="statusSearch" class="bt" mat-button (click)="onClickBack()">Voltar</button>
+  </div>
+
+</div>
+
+<!--
+<div  class="allcontent"  >
+
+
+  <div class="a1 searchMob">
+    <mat-form-field class="formStyle" appearance="outline">
+      <mat-label>Buscar repositórios do git</mat-label>
+      <input type="email" matInput placeholder="Informe aqui o nome do usuário" #userName
+        (keyup.enter)="onPressEnterKey(userName.value)">
+
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="!statusSearch" class="alogo"  >
+    <div class="im"></div>
+    <div class="searchDesk">
+      <mat-form-field class="formStyle" appearance="outline">
+        <mat-label>Buscar repositórios do git</mat-label>
+        <input type="email" matInput placeholder="Informe aqui o nome do usuário" #userName
+          (keyup.enter)="onPressEnterKey(userName.value)">
+      </mat-form-field>
+      <button class="bt" mat-raised-button color="warn" (click)="onPressEnterKey(userName.value)" [disabled]="statusBtSearch">Buscar</button>
+    </div>
+  </div>
+
+  <div class="content1" *ngIf="statusSearch">
+
+    <div style="display: flex; align-items: center; gap: 10; margin-top: 10px;padding-left: 10px;">
+      <div class="avatar" style="background-image: url('{{avatar}}')"></div>
+      <div class="nameUser">
+        <div style="font-weight: 600;"> {{userNameGIT}} </div>
+        <div> {{location}} </div>
+      </div>
+    </div>
+
+    <mat-list>
+      <div mat-subheader> Repositórios Github </div>
+
+      <span *ngFor="let item of repoItens">
+        <mat-list-item (click)="onClickItemRepo(item)" [class.itemSelected]="item.selected">
+
+          <mat-icon mat-list-icon class="iconColorApp" [class.repoNameSelected]="item.selected">
+            folder</mat-icon>
+
+          <button mat-icon-button color="warn">
+            <mat-icon *ngIf="!item.selected">chevron_right</mat-icon>
+            <mat-icon *ngIf="item.selected">expand_more</mat-icon>
+          </button>
+
+          <div class="repoName" mat-line [class.repoNameSelected]="item.selected">
+            {{item.name}}
+          </div>
+
+          <div mat-line></div>
+        </mat-list-item>
+        <div class="box" *ngIf="item.selected">
+          <div class="desc"> <mat-icon class="icc">event</mat-icon> Data criado: {{ item.created_at }}</div>
+          <div class="desc"> <mat-icon class="icc">supervisor_account</mat-icon> Branch principal: {{ item.default_branch }}</div>
+          <div class="desc"> <mat-icon class="icc">swap_horiz</mat-icon> Git clone: {{ item.clone_url }}</div>
+          <div class="desc"> <mat-icon class="icc">vpn_key</mat-icon> SSH: {{ item.ssh_url }}</div>
+          <div class="desc"> <mat-icon class="icc">keyboard</mat-icon> Linguagem: {{ item.language }}</div>
+          <div class="desc"> <mat-icon class="icc">pin</mat-icon> Descrição: {{ item.description }}</div>
+        </div>
+      </span>
+
+    </mat-list>
+    <div class="fo">
+      <div class="fo1">Quantidade de repositórios publicos {{public_repos}} </div>
+      <div class="fo2"> <a [href]="userUrl" target="_new">{{ userUrl }}</a> </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;margin-top: 20px;">
+    <button *ngIf="statusSearch" class="bt" mat-button color="warn" (click)="onClickBack()">Voltar</button>
+  </div>
+
+
+</div>
+
+-->
